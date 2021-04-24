@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:Demo01.ViewModels"
+    x:Class="Demo01.Views.HealthCheckPage"
+    Title="{Binding Title}">
+
+    <ContentPage.BindingContext>
+        <vm:HealthCheckViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+
+        <StackLayout Orientation="Vertical" VerticalOptions="Center" Spacing="10" Margin="10, 0">
+            <Button Text="Health Check" Command="{Binding HealthCheckCommand}" BackgroundColor="{StaticResource Primary}" TextColor="White" />
+            <Button Text="Test Error" Command="{Binding TestErrorCommand}" BackgroundColor="{StaticResource Primary}" TextColor="White" />
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>

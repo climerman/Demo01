@@ -1,4 +1,6 @@
-﻿using Demo01.Services;
+﻿using Demo01.Network;
+using Demo01.Services;
+using Demo01.Utilities;
 using Demo01.Views;
 using System;
 using Xamarin.Forms;
@@ -14,6 +16,13 @@ namespace Demo01
             InitializeComponent();
 
             DependencyService.Register<MockDataStore>();
+
+            //Register Undo API Services
+            DependencyService.Register<UndoService>();
+
+            //Register dialog service
+            DependencyService.Register<DialogService>();
+
             MainPage = new AppShell();
         }
 

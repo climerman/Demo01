@@ -1,9 +1,11 @@
-﻿using Demo01.Models;
-using Demo01.Services;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using Demo01.Models;
+using Demo01.Network;
+using Demo01.Services;
+using Demo01.Utilities;
 using Xamarin.Forms;
 
 namespace Demo01.ViewModels
@@ -11,6 +13,16 @@ namespace Demo01.ViewModels
     public class BaseViewModel : INotifyPropertyChanged
     {
         public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>();
+
+        /// <summary>
+        /// Resolve dialog service
+        /// </summary>
+        public IDialogService Dialog => DependencyService.Get<IDialogService>();
+
+        /// <summary>
+        /// Resolve Undo API service
+        /// </summary>
+        public IUndoService UndoAPI => DependencyService.Get<IUndoService>();
 
         bool isBusy = false;
         public bool IsBusy
